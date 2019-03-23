@@ -12,8 +12,8 @@ module.exports = (config) => ({
         : 'production',
 
     devtool: config.options.devMode
-        ? 'eval-source-map'
-        : 'source-map',
+        ? 'cheap-module-eval-source-map'
+        : 'none',
 
     devServer: require('./devServer')(config.options),
 
