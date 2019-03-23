@@ -6,18 +6,26 @@ module.exports = () => ({
         es6: true,
         jest: true,
     },
+    settings: {
+        'import/extensions': ['.js', '.jsx'],
+    },
     rules: {
         indent: ['warn', 4, { SwitchCase: 1 }],
         'arrow-parens': 'off',
         quotes: ['error', 'single'],
         'space-before-function-paren': 'off',
-        'comma-dangle': ['error', {
-            arrays: 'always-multiline',
-            objects: 'always-multiline',
-            exports: 'always-multiline',
-            functions: 'ignore',
-        }],
+        'comma-dangle': [
+            'error',
+            {
+                arrays: 'always-multiline',
+                objects: 'always-multiline',
+                exports: 'always-multiline',
+                functions: 'ignore',
+            },
+        ],
         'padded-blocks': 'off',
         'function-paren-newline': 'off',
+        'prefer-arrow-callback': 'off',
+        'import/no-extraneous-dependencies': 'off',
     },
 });
