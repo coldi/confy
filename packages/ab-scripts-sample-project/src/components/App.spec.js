@@ -1,13 +1,13 @@
-/* eslint-disable  no-undef */
 import React from 'react';
-import Enzyme from 'enzyme';
+import TestRenderer from 'react-test-renderer';
 import App from './App';
+import AppLayout from './AppLayout';
 
 describe('components/App', () => {
     let renderedElement;
 
     const renderComponent = () => {
-        renderedElement = Enzyme.shallow(<App />);
+        renderedElement = TestRenderer.create(<App />).root;
     };
 
     beforeEach(() => {
@@ -16,7 +16,7 @@ describe('components/App', () => {
 
     describe('Given the component was mounted to the DOM', () => {
         it('should contain AppLayout', () => {
-            expect(renderedElement.find('AppLayout').length).toBe(1);
+            expect(renderedElement.findByType(AppLayout)).toBeTruthy();
         });
     });
 });

@@ -9,7 +9,7 @@ const getConfig = require('../utils/getConfig');
 module.exports = {
     command: 'start',
 
-    desc: 'Start the webpack development server.',
+    desc: 'Start the Webpack development server.',
 
     handler () {
         const config = getConfig();

@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './AppLayout.scss';
 
-export default function AppLayout (props) {
+export default function AppLayout ({ children }) {
     return (
         <div className={styles.container}>
-            {props.children}
+            {children}
         </div>
     );
 }

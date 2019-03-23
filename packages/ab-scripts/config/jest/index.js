@@ -3,7 +3,8 @@ const settings = require('../../lib/settings');
 module.exports = () => ({
     verbose: true,
     rootDir: settings.appPath,
-    // fix possible issue with jsom localStorage.
+    testEnvironment: 'jsdom',
+    // fix possible issue with jsdom localStorage.
     // see: https://github.com/facebook/jest/issues/6766
     testURL: 'http://localhost',
     setupFiles: [

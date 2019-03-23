@@ -22,9 +22,8 @@ module.exports = options => {
                 {
                     modules: false,
                     useBuiltIns: 'usage',
-                    targets: {
-                        browsers: options.browsersList,
-                    },
+                    corejs: 3,
+                    targets: options.browsersList.join(', '),
                 },
             ],
         ],

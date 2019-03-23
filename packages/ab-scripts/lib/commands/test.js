@@ -7,20 +7,17 @@ const settings = require('../settings');
 module.exports = {
     command: 'test',
 
-    desc: 'Run tests with jest.',
+    desc: 'Run tests with Jest.',
 
-    handler () {
+    handler() {
         const config = getConfig();
 
-        invariant(
-            config.options.testMode,
-            'Make sure to run tests in "test" mode.'
-        );
+        invariant(config.options.testMode, 'Make sure to run tests in "test" mode.');
 
         // Makes the script crash on unhandled rejections instead of silently
         // ignoring them. In the future, promise rejections that are not handled will
         // terminate the Node.js process with a non-zero exit code.
-        process.on('unhandledRejection', (err) => {
+        process.on('unhandledRejection', err => {
             throw err;
         });
 
@@ -28,12 +25,7 @@ module.exports = {
         // This is necessary for the babel-jest transformer to work.
         writeFile(settings.appPath, '.babelrc', config.addons.babel);
 
-        // TODO: check later if this workaround is still needed
-        const argsList = process.argv
-            .slice(2)
-            .filter(arg => arg !== 'test');
-
-        argsList.push('--config', JSON.stringify(config.runners.jest));
+        const argsList = ['--config', JSON.stringify(config.runners.jest)];
 
         jest.run(argsList);
     },

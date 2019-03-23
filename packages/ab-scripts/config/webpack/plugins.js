@@ -11,14 +11,7 @@ module.exports = (options) => {
     const plugins = [];
 
     // Add clean up plugin
-    plugins.push(
-        new CleanWebpackPlugin(
-            [
-                path.resolve(settings.appPath, options.buildDir),
-            ],
-            { root: settings.appPath }
-        ),
-    );
+    plugins.push(new CleanWebpackPlugin());
 
     // Resolve assets folder
     const assetsPath = path.resolve(settings.appPath, options.srcDir, options.assetsDir);
