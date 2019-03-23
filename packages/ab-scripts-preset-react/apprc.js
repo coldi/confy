@@ -27,10 +27,6 @@ module.exports = {
                 ...presets,
                 require.resolve('@babel/preset-react'),
             ],
-            plugins: (plugins = []) => [
-                ...plugins,
-                require.resolve('react-hot-loader/babel'),
-            ],
         },
     }),
 
@@ -57,6 +53,13 @@ module.exports = {
                     });
 
                     return rules;
+                },
+            },
+            resolve: {
+                alias: {
+                    'react-dom': config.options.devMode
+                        ? '@hot-loader/react-dom'
+                        : 'react-dom',
                 },
             },
         },
