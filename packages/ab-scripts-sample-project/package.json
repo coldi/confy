@@ -1,0 +1,20 @@
+{
+  "name": "ab-scripts-sample-project",
+  "version": "0.1.0",
+  "description": "A sample project using ab-scripts.",
+  "private": true,
+  "scripts": {
+    "init": "ab-scripts init --env=development",
+    "start": "ab-scripts start --env=development",
+    "build": "ab-scripts build --env=production",
+    "build-watch": "ab-scripts build --watch --env=production",
+    "test": "ab-scripts test --env=test",
+    "config": "ab-scripts show-config --env=development"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "ab-scripts": "*",
+    "ab-scripts-preset-react": "*",
+    "ab-scripts-preset-sass": "*"
+  }
+}

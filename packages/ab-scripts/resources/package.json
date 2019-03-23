@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "init": "ab-scripts init --env=development",
+    "start": "ab-scripts start --env=development",
+    "build": "ab-scripts build --env=production",
+    "build-watch": "ab-scripts build --watch --env=production",
+    "test": "ab-scripts test --env=test",
+    "config": "ab-scripts show-config --env=development"
+  }
+}

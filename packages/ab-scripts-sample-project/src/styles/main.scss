@@ -1,0 +1,6 @@
+:global {
+  // This is for global styles only.
+  // You should us this very carefully!
+  // Instead import and bind your styles right to components, whenever possible.
+  @import "base";
+}
