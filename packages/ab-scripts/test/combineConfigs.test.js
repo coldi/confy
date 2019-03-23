@@ -1,4 +1,4 @@
-/* eslint-disable  no-undef */
+/* eslint-disable  no-param-reassign */
 const combineConfigs = require('./../lib/utils/combineConfigs');
 
 describe('combineConfigs', () => {
@@ -6,10 +6,18 @@ describe('combineConfigs', () => {
     let configA;
     let configB;
     let configC;
-    let mockJsonQueryResolver;
+    let mockMutationResolver;
 
     // Define test mock configurations
     beforeEach(() => {
+        mockMutationResolver = jest.fn(loader => {
+            // eslint-disable-next-line
+            loader.options = {
+                ...loader.options,
+                foo: 'baz',
+            };
+        });
+
         configA = {
             options: {
                 host: 'root',
@@ -60,18 +68,9 @@ describe('combineConfigs', () => {
                 host: 'project',
             })),
             addons: {
-                // This should merge entries of eslint.extends (func w/ spread)
-                '$eslint.extends': (eslintExtends) => ([
-                    ...eslintExtends,
-                    'bar',
-                ]),
-
                 eslint: {
                     // This should not conflict with the '$eslint.extends' query above
-                    extends: (eslintExtends) => ([
-                        ...eslintExtends,
-                        'baz',
-                    ]),
+                    extends: eslintExtends => [...eslintExtends, 'bar'],
 
                     // This should overwrite previous eslint.rules (func w/o spread)
                     rules: () => ({
@@ -85,24 +84,54 @@ describe('combineConfigs', () => {
                     entry: {
                         otherBundle: 'other.js',
                     },
+                    module: {
+                        rules: (rules = []) => {
+                            rules.forEach(rule => {
+                                if (rule.use) {
+                                    rule.use.forEach(useEntry => {
+                                        // Find and mutate 'test-loader' entry
+                                        if (useEntry.loader === 'test-loader') {
+                                            mockMutationResolver(useEntry);
+                                        }
+                                    });
+                                }
+                            });
+
+                            return rules;
+                        },
+                    },
                 },
             },
         };
 
-        mockJsonQueryResolver = jest.fn((loader) => ({
-            ...loader,
-            options: {
-                ...loader.options,
-                foo: 'baz',
-            },
-        }));
-
         configC = {
+            addons: {
+                eslint: {
+                    // Mutation should not conflict with 'eslint.extends' from configB
+                    extends: eslintExtends => {
+                        eslintExtends.push('baz');
+                        return eslintExtends;
+                    },
+                },
+            },
             runners: {
                 webpack: {
-                    '$module.rules[**].use[**][loader=test-loader]': mockJsonQueryResolver,
-                    // Multiple search queries should not conflict
-                    '$module.rules[**].use[**][loader=other-loader]': mockJsonQueryResolver,
+                    module: {
+                        rules: (rules = []) => {
+                            rules.forEach(rule => {
+                                if (rule.use) {
+                                    rule.use.forEach(useEntry => {
+                                        // Find and mutate 'other-loader' entry
+                                        if (useEntry.loader === 'other-loader') {
+                                            mockMutationResolver(useEntry);
+                                        }
+                                    });
+                                }
+                            });
+
+                            return rules;
+                        },
+                    },
                 },
             },
         };
@@ -130,8 +159,10 @@ describe('combineConfigs', () => {
     });
 
     test('Array values should be merged correctly', () => {
-        expect(result.addons.eslint.extends.length).toBeGreaterThan(1);
-        expect(result.addons.eslint.extends).toContain('bar');
+        expect(result.addons.eslint.extends.length).toBe(3);
+        expect(result.addons.eslint.extends[0]).toBe('foo');
+        expect(result.addons.eslint.extends[1]).toBe('bar');
+        expect(result.addons.eslint.extends[2]).toBe('baz');
     });
 
     test('Object values can be overwritten', () => {
@@ -144,18 +175,7 @@ describe('combineConfigs', () => {
         expect(result.runners.webpack.entry.otherBundle).toBeDefined();
     });
 
-    test('Query function should be merged correctly', () => {
-        const testLoaderResult = result.runners.webpack.module.rules[0].use[0];
-
-        expect(testLoaderResult.options.foo).toBe('baz');
-    });
-
-    test('Using query and same nested object structure should not conflict ', () => {
-        expect(result.addons.eslint.extends).toHaveLength(3);
-        expect(result.addons.eslint.extends).toContain('baz');
-    });
-
-    test('Multiple search queries should not conflict', () => {
+    test('Multiple direct mutations should not conflict', () => {
         const testLoaderResult = result.runners.webpack.module.rules[0].use[0];
         const otherLoaderResult = result.runners.webpack.module.rules[0].use[1];
 
@@ -167,12 +187,11 @@ describe('combineConfigs', () => {
         expect(otherLoaderResult.options.bar).toBe('baz');
     });
 
-    test.skip('Query function should receive original value', () => {
+    test.skip('Mocked mutating function should receive original value', () => {
         // Call mock fn first
         const webpackA = configA.runners.webpack();
 
-        expect(mockJsonQueryResolver).toBeCalledWith(
-            webpackA.module.rules[0].use[0]
-        );
+        expect(mockMutationResolver).toHaveBeenCalledTimes(2);
+        expect(mockMutationResolver.mock.calls[0][0]).toBe(webpackA.module.rules[0].use[0]);
     });
 });

@@ -8,8 +8,8 @@ const settings = require('../settings');
  * @param {string} absPath The absolute directory path where the config should be
  */
 const requireConfig = absPath => {
-    const configFilename = settings.configFilenames.find(name =>
-        fs.existsSync(path.join(absPath, name))
+    const configFilename = settings.configFilenames.find(
+        name => fs.existsSync(path.join(absPath, name))
     );
 
     return configFilename ? require(path.join(absPath, configFilename)) : {};

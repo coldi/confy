@@ -1,7 +1,5 @@
 module.exports = {
-    addons: config => ({
-        ...config.addons,
-
+    addons: () => ({
         eslint: {
             extends: prevExtends => [
                 ...prevExtends,
@@ -37,23 +35,30 @@ module.exports = {
     }),
 
     runners: config => ({
-        ...config.runners,
-
         webpack: {
-            '$module.rules[**].use[**][loader=css-loader].options': (
-                loaderOptions = {}
-            ) => ({
-                ...loaderOptions,
-                modules: true,
-            }),
-            '$module.rules': (rules = []) => [
-                {
-                    test: /\.svg$/,
-                    issuer: { test: /\.jsx?$/ },
-                    use: ['@svgr/webpack', 'file-loader'],
+            module: {
+                rules: (rules = []) => {
+                    rules.unshift({
+                        test: /\.svg$/,
+                        issuer: { test: /\.jsx?$/ },
+                        use: ['@svgr/webpack', 'file-loader'],
+                    });
+
+                    rules.forEach(rule => {
+                        if (!rule.use) return;
+                        rule.use.forEach(useEntry => {
+                            if (useEntry.loader === 'css-loader') {
+                                useEntry.options = {
+                                    ...useEntry.options,
+                                    modules: true,
+                                };
+                            }
+                        });
+                    });
+
+                    return rules;
                 },
-                ...rules,
-            ],
+            },
         },
 
         jest: {

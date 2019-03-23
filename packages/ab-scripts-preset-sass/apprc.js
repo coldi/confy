@@ -5,8 +5,6 @@ module.exports = {
         stylesDir: 'styles', // relative to srcDir
     },
     runners: config => ({
-        ...config.runners,
-
         webpack: {
             module: {
                 rules: (rules = []) => {
