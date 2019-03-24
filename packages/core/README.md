@@ -191,6 +191,9 @@ module.exports = {
     // Define page title.
     title: 'New App',
 
+    // Code style indention
+    tabWidth: 4,
+
     // Hostname for webpack dev server.
     host: '0.0.0.0',
 

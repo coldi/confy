@@ -21,8 +21,11 @@ invariant(
     'The NODE_ENV environment variable is required but was not specified.'
 );
 
+const config = getConfig();
 // Always rebuild .eslintrc file.
-writeFile(settings.appPath, '.eslintrc.json', getConfig().addons.eslint);
+writeFile(settings.appPath, '.eslintrc', config.addons.eslint);
+// Always rebuild .prettierrc file.
+writeFile(settings.appPath, '.prettierrc', config.addons.prettier);
 
 yargs
     .command(build)

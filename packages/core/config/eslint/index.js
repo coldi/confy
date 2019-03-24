@@ -1,5 +1,8 @@
-module.exports = () => ({
-    extends: ['airbnb-base'],
+module.exports = (options) => ({
+    extends: [
+        'airbnb-base',
+        'plugin:prettier/recommended',
+    ],
     parser: 'babel-eslint',
     env: {
         browser: true,
@@ -10,10 +13,8 @@ module.exports = () => ({
         'import/extensions': ['.js', '.jsx'],
     },
     rules: {
-        indent: ['warn', 4, { SwitchCase: 1 }],
-        'arrow-parens': 'off',
+        indent: ['warn', options.tabWidth, { SwitchCase: 1 }],
         quotes: ['error', 'single'],
-        'space-before-function-paren': 'off',
         'comma-dangle': [
             'error',
             {
@@ -23,8 +24,12 @@ module.exports = () => ({
                 functions: 'ignore',
             },
         ],
+        'no-console': 'warn',
         'padded-blocks': 'off',
+        'space-before-function-paren': 'off',
         'function-paren-newline': 'off',
+        'arrow-parens': 'off',
+        'arrow-body-style': 'off',
         'prefer-arrow-callback': 'off',
         'import/no-extraneous-dependencies': 'off',
     },

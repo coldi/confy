@@ -1,9 +1,9 @@
 module.exports = {
-    addons: () => ({
+    addons: config => ({
         eslint: {
             extends: (prevExtends = []) => [
                 ...prevExtends,
-                require.resolve('eslint-config-airbnb'),
+                'eslint-config-airbnb',
             ],
             plugins: (plugins = []) => [
                 ...plugins,
@@ -15,16 +15,13 @@ module.exports = {
                 'react/prop-types': 'warn',
                 'react/prefer-stateless-function': 'warn',
                 'react/sort-comp': 'off',
-                'react/no-array-index-key': 'off',
                 'react/require-default-props': 'off',
-                'react/jsx-indent': ['warn', 4],
-                'react/jsx-indent-props': ['warn', 4],
+                'react/jsx-indent': ['warn', config.options.tabWidth],
+                'react/jsx-indent-props': ['warn', config.options.tabWidth],
                 'react/jsx-filename-extension': 'off',
                 'react/jsx-one-expression-per-line': 'off',
                 'react-hooks/rules-of-hooks': 'error',
                 'react-hooks/exhaustive-deps': 'warn',
-                'jsx-a11y/no-noninteractive-element-interactions': 'off',
-                'jsx-a11y/no-static-element-interactions': 'off',
             },
         },
 

@@ -16,6 +16,8 @@ module.exports = {
         htmlTemplate: 'index.html',
         // Define page title
         title: 'New App',
+        // Code style indention
+        tabWidth: 4,
         // DevServer settings
         host: '0.0.0.0',
         port: 3000,
@@ -39,6 +41,7 @@ module.exports = {
     addons: config => ({
         babel: require('./config/babel')(config.options),
         eslint: require('./config/eslint')(config.options),
+        prettier: require('./config/prettier')(config.options),
     }),
 
     runners: config => ({
