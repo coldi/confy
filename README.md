@@ -1,10 +1,10 @@
-# App Build Scripts
+# Confy
 
-This is the monorepo for all packages related to the App Build Scripts.
+This is the monorepo for all packages related to the Confy build tools.
 
 ## Packages
 
-- [ab-scripts](./packages/ab-scripts) - Core package
-- [ab-scripts-cli](./packages/ab-scripts-cli) - CLI tool for project setup
-- [ab-scripts-preset-react](./packages/ab-scripts-preset-react) - Preset for usage with React
-- [ab-scripts-preset-sass](./packages/ab-scripts-preset-sass) - Preset for usage with Sass/SCSS
+- [@confy/core](./packages/core) - Core package
+- [@confy/cli](./packages/cli) - CLI tool for project setup
+- [@confy/preset-react](./packages/preset-react) - Preset for usage with React
+- [@confy/preset-sass](./packages/preset-sass) - Preset for usage with Sass/SCSS

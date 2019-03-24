@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "init": "confy-core init --env=development",
+    "start": "confy-core start --env=development",
+    "build": "confy-core build --env=production",
+    "build-watch": "confy-core build --watch --env=production",
+    "test": "confy-core test --env=test",
+    "config": "confy-core show-config --env=development"
+  }
+}

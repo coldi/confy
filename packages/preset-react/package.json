@@ -1,0 +1,40 @@
+{
+  "name": "@confy/preset-react",
+  "version": "0.1.0",
+  "description": "React preset for Confy.",
+  "author": "Felix Laukel <felix@laukel.com>",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "confy",
+    "preset",
+    "react"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coldi/confy.git",
+    "directory": "packages/preset-react"
+  },
+  "main": "apprc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "@hot-loader/react-dom": "^16.0.0",
+    "@svgr/webpack": "^4.1.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-jsx-a11y": "^6.2.0",
+    "eslint-plugin-react": "^7.12.0",
+    "eslint-plugin-react-hooks": "^1.5.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-hot-loader": "^4.8.0",
+    "react-test-renderer": "^16.0.0"
+  },
+  "peerDependencies": {
+    "@confy/core": "*"
+  }
+}
