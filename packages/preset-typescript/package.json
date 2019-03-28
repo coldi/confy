@@ -1,6 +1,6 @@
 {
   "name": "@confy/preset-typescript",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TypeScript preset for Confy.",
   "author": "Felix Laukel <felix@laukel.com>",
   "publishConfig": {
