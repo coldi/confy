@@ -31,6 +31,12 @@ module.exports = {
                 require.resolve('@babel/preset-react'),
             ],
         },
+
+        typescript: {
+            compilerOptions: {
+                jsx: 'react',
+            },
+        },
     }),
 
     runners: config => ({

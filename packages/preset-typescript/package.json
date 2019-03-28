@@ -1,0 +1,34 @@
+{
+  "name": "@confy/preset-typescript",
+  "version": "0.1.0",
+  "description": "TypeScript preset for Confy.",
+  "author": "Felix Laukel <felix@laukel.com>",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "confy",
+    "preset",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coldi/confy.git",
+    "directory": "packages/preset-typescript"
+  },
+  "main": "apprc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@babel/preset-typescript": "^7.1.0",
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
+    "@typescript-eslint/parser": "^1.4.2",
+    "fork-ts-checker-webpack-plugin": "^1.0.0",
+    "typescript": "^3.3.0"
+  },
+  "peerDependencies": {
+    "@confy/core": "*"
+  }
+}

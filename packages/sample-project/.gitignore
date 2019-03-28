@@ -1,5 +1,6 @@
 node_modules
 build
-.eslintrc*
-.babelrc*
-.prettierrc*
+/.eslintrc*
+/.babelrc*
+/.prettierrc*
+/tsconfig.json

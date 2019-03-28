@@ -42,6 +42,7 @@ module.exports = {
         babel: require('./config/babel')(config.options),
         eslint: require('./config/eslint')(config.options),
         prettier: require('./config/prettier')(config.options),
+        typescript: require('./config/typescript')(config.options),
     }),
 
     runners: config => ({
