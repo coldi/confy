@@ -1,6 +1,12 @@
 const path = require('path');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
+function putPrettierLast(entries) {
+    const prettier = entries.filter(a => (/prettier/i).test(a));
+    const others = entries.filter(a => !(/prettier/i).test(a));
+    return others.concat(prettier);
+}
+
 module.exports = {
     addons: () => ({
         typescript: {
@@ -21,18 +27,18 @@ module.exports = {
             ]
         },
         eslint: {
-            parser: '@typescript-eslint/parser',
+            parser: require.resolve('@typescript-eslint/parser'),
             parserOptions: {
                 project: path.join(process.cwd(), 'tsconfig.json'),
             },
-            extends: (entries = []) => [
+            extends: (entries = []) => putPrettierLast([
                 ...entries,
                 'plugin:@typescript-eslint/recommended',
                 'prettier/@typescript-eslint',
-            ],
+            ]),
             plugins: (plugins = []) => [
                 ...plugins,
-                '@typescript-eslint',
+                '@typescript-eslint/eslint-plugin',
             ],
             settings: {
                 'import/extensions': (extensions = []) => [
@@ -44,6 +50,8 @@ module.exports = {
             rules: {
                 '@typescript-eslint/explicit-function-return-type': 'off',
                 '@typescript-eslint/no-explicit-any': 'off',
+                // use the @typescript-eslint rule for unused vars
+                'no-unused-vars': 'off',
             },
         },
         prettier: {

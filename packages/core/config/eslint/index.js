@@ -1,6 +1,6 @@
 module.exports = (options) => ({
     extends: [
-        'airbnb-base',
+        'eslint-config-airbnb-base',
         'plugin:prettier/recommended',
     ],
     parser: 'babel-eslint',

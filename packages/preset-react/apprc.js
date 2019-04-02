@@ -1,10 +1,16 @@
+function putPrettierLast(entries) {
+    const prettier = entries.filter(a => (/prettier/i).test(a));
+    const others = entries.filter(a => !(/prettier/i).test(a));
+    return others.concat(prettier);
+}
+
 module.exports = {
     addons: config => ({
         eslint: {
-            extends: (prevExtends = []) => [
+            extends: (prevExtends = []) => putPrettierLast([
                 ...prevExtends,
                 'eslint-config-airbnb',
-            ],
+            ]),
             plugins: (plugins = []) => [
                 ...plugins,
                 'eslint-plugin-react-hooks',

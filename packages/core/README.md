@@ -174,7 +174,7 @@ module.exports = {
     // Define files for main bundle.
     // Path is relative to srcDir.
     // May contain your css entry file as well, so you don't have to import it.
-    entryFiles: ['index.js'],
+    entryFiles: ['index'],
 
     // Set js output filename in webpack.output
     jsOutputFile: '[name].bundle.js',

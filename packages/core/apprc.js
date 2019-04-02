@@ -5,7 +5,7 @@ module.exports = {
         assetsDir: 'assets', // relative to srcDir
         buildDir: 'build',
         // Define files for main bundle
-        entryFiles: ['index.js'],
+        entryFiles: ['index'],
         // Set js output filename
         jsOutputFile: '[name].bundle.js',
         // Set css output filename
