@@ -1,7 +1,7 @@
 module.exports = {
-    presets: ['react', 'sass'],
+    presets: ['typescript', 'react', 'sass'],
     options: {
-        entryFiles: ['styles/main.scss', 'index-react.js'],
+        entryFiles: ['styles/main.scss', 'index.ts'],
         title: 'Sample Project',
         htmlTemplate: './templates/index.ejs',
         port: 9999,
