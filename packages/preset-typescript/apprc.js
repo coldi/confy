@@ -81,7 +81,7 @@ module.exports = {
             ],
         },
         jest: {
-            moduleFileExtensions: (extensions = []) => [
+            moduleFileExtensions: (extensions = ['js']) => [
                 ...extensions,
                 'ts',
                 'tsx',
