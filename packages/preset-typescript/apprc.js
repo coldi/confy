@@ -11,6 +11,7 @@ module.exports = {
     addons: () => ({
         typescript: {
             compilerOptions: {
+                baseUrl: process.cwd(),
                 sourceMap: true,
                 allowJs: true,
                 allowSyntheticDefaultImports: true,
