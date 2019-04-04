@@ -6,4 +6,5 @@ module.exports = (options) => ({
     hot: true,
     inline: true,
     stats: require('./stats')(options),
+    historyApiFallback: true,
 });
