@@ -1,6 +1,6 @@
 {
   "name": "@confy/sample-project",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A sample project using Confy.",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@confy/core": "^0.3.2",
+    "@confy/core": "^0.3.3",
     "@confy/preset-react": "^0.3.1",
     "@confy/preset-sass": "^0.1.1",
     "@confy/preset-typescript": "^0.1.3",
