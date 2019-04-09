@@ -1,4 +1,7 @@
-module.exports = (addons) => ({
+const path = require('path');
+const settings = require('../../../lib/settings');
+
+module.exports = (options, addons) => ({
     test: /\.js$/,
     use: [
         {
@@ -12,5 +15,7 @@ module.exports = (addons) => ({
             loader: 'eslint-loader',
         },
     ],
-    exclude: /node_modules/,
+    include: [
+        path.join(settings.appPath, options.srcDir),
+    ],
 });

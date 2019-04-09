@@ -21,7 +21,7 @@ module.exports = (config) => ({
 
     module: {
         rules: [
-            require('./rules/scripts')(config.addons),
+            require('./rules/scripts')(config.options, config.addons),
             require('./rules/styles')(config.options),
             require('./rules/files')(config.options),
         ],
