@@ -25,7 +25,13 @@ module.exports = {
         // This is necessary for the babel-jest transformer to work.
         writeFile(settings.appPath, '.babelrc', config.addons.babel);
 
-        const argsList = ['--config', JSON.stringify(config.runners.jest)];
+        // Remove initial items from arguments list and pass the remaining args to Jest.
+        // Initial items are: `[node] [confy-core] test`
+        const argsList = process.argv.slice(3)
+            // Also remove any --env flag that is only confy-core related
+            .filter(arg => !arg.includes('--env='));
+
+        argsList.push('--config', JSON.stringify(config.runners.jest));
 
         jest.run(argsList);
     },
