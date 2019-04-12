@@ -1,5 +1,6 @@
 const invariant = require('invariant');
 const chalk = require('chalk');
+const getPort = require('get-port');
 const ip = require('ip');
 const clearConsole = require('console-clear');
 const webpack = require('webpack');
@@ -11,7 +12,7 @@ module.exports = {
 
     desc: 'Start the Webpack development server.',
 
-    handler () {
+    async handler() {
         const config = getConfig();
 
         invariant(
@@ -19,7 +20,11 @@ module.exports = {
             'Make sure to start dev server in "development" mode.'
         );
 
-        const { host, port } = config.options;
+        const { host, port: preferredPort } = config.options;
+
+        const portRange = getPort.makeRange(preferredPort, preferredPort + 10);
+        const port = await getPort({ host, port: portRange });
+
         const localUrl = `http://${host === '0.0.0.0' ? 'localhost' : host}:${port}`;
         const networkUrl = `http://${ip.address()}:${port}`;
 
