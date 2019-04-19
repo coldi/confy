@@ -1,4 +1,4 @@
-# Confy Sass/SCSS Preset
+# @confy/preset-sass
 
 Extends Confy configuration with SCSS support.
 
@@ -23,10 +23,10 @@ module.exports = {
 
 ## Installation
 
-Using Confy CLI:
+Using [@confy/cli](./packages/cli):
 
 ```
 confy init sass
 ```
 
-If you want to add this preset to an existing project, please read the Confy [installation guide](https://github.com/coldi/confy/tree/master/packages/core).
+If you want to add this preset to an existing project, please read the Confy [installation guide](https://github.com/coldi/confy).
