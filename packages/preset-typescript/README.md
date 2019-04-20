@@ -1,4 +1,4 @@
-# Confy TypeScript Preset
+# @confy/preset-typescript
 
 Extends Confy configuration with TypeScript support.
 
@@ -22,10 +22,10 @@ module.exports = {
 
 ## Installation
 
-Using Confy CLI:
+Using [@confy/cli](./packages/cli):
 
 ```
 confy init typescript
 ```
 
-If you want to add this preset to an existing project, please read the Confy [installation guide](https://github.com/coldi/confy/tree/master/packages/core).
+If you want to add this preset to an existing project, please read the Confy [installation guide](https://github.com/coldi/confy).
