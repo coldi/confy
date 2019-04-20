@@ -3,7 +3,7 @@
 # @confy
 
 <p>
-Re-usable configurations for your web apps
+Re-usable configurations for web apps
 </p>
 
 <p>
@@ -37,11 +37,11 @@ Re-usable configurations for your web apps
 
 ## Why
 
-When you start a new web app nowadays you soon end up using a lot of tools. Like Babel for transpiling your next level JS. Or Webpack for bundling your code. Or maybe you want to use a linter like ESLint. And what about tests?
+When I started with my first web app years ago I soon ended up using a lot of tools. Like Babel for transpiling my next level JS. Or Webpack for bundling my code. And then I wanted to use a linter. And tests for sure!
 
-Configuring these tools can be very tricky and time consuming. And if you maintain more than one app, you start copying all config files over and over again.
+Configuring these tools can be very tricky and time consuming. And once I maintained a couple of apps, I started copying all config files over and over again. It soon became quite difficult to manage.
 
-Confy abstracts away all of these things. It comes with some opinionated defaults, but all configurations can be adjusted and extended on a project level. Without "ejecting".
+Confy abstracts away the configuration of these tools. It comes with some opinionated defaults, but all configurations can be adjusted and extended on a project level. Without "ejecting".
 
 ## What's inside
 
@@ -74,6 +74,8 @@ npx @confy/cli init react
 ```
 
 This will set up your new project with all tools mentioned above and additionally pre-configured for usage with React.
+
+> 💡 Confy CLI will automatically use Yarn when it's available, otherwise NPM. With `--install=npm` you can manually set the installer.
 
 ### Add Confy to an existing app
 
@@ -138,7 +140,7 @@ If you want to change the default config, you can do that in the `.apprc.js` fil
 ```js
 // basic outline of .apprc.js
 module.exports = {
-  presets: [], // like 'react', 'typescript', 'git://github.com/user/foo.git'
+  presets: [], // like 'react', 'typescript', 'my-custom-git-preset'
   options: {
     srcDir: 'src',
     entryFiles: ['index.js'], // relative to srcDir
@@ -204,6 +206,9 @@ the package name should be `some-preset`.
 
 Every solution that abstracts configuration has its limitations. So does Confy:
 
+- Confy provides configurations for front-end web apps right now. If you want to use it to create a library or a Node server app, this might be an issue.
+  - [kcd-scripts](https://github.com/kentcdodds/kcd-scripts) might be a good alternative for library use cases.
+  - Server apps with Confy is something that may come in the future.
 - Confy doesn't write out the config files for runners, like `webpack.config.js`. So if you rely on your IDE reading and using these files, this might be an issue.
 - The list of tools that Confy uses at its core is not extendable. This means you can not add another tool to the stack. You can only configure the existing core tools for now. So if you want to bundle with Rollup or use Mocha for your tests, this might be an issue.
 
