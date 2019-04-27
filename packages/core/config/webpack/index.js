@@ -36,8 +36,8 @@ module.exports = (config) => ({
             settings.appNodeModulesPath,
         ],
         extensions: [
-            '.js',
             '.mjs',
+            '.js',
             '.json',
         ],
     },
