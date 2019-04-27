@@ -9,7 +9,7 @@ module.exports = options => {
 
     const bundledEntries = [];
 
-    if (options.devMode) {
+    if (options.devMode && options.host) {
         const url = `http://${options.host}:${options.port}`;
         bundledEntries.push(`webpack-dev-server/client?${url}`, 'webpack/hot/dev-server');
     }
