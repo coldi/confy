@@ -1,4 +1,3 @@
-const invariant = require('invariant');
 const chalk = require('chalk');
 const webpack = require('webpack');
 const getConfig = require('../utils/getConfig');
@@ -10,12 +9,6 @@ module.exports = ({
 
     handler (argv) {
         const config = getConfig();
-
-        invariant(
-            !config.options.devMode && !config.options.testMode,
-            'Make sure to run build script in "production" mode.'
-        );
-
 
         if (argv.watch) {
             // Add flag for watch mode.
@@ -31,6 +24,9 @@ module.exports = ({
                 console.log(chalk.red('Build failed!'));
                 console.log();
                 console.log('[webpack]', stats.toString(config.runners.webpack.stats));
+
+                if (argv.watch) return;
+
                 process.exit(1);
             }
 
