@@ -48,16 +48,6 @@ module.exports = {
                     '.d.ts',
                     '.tsx',
                 ],
-                'import/resolver': {
-                    node: {
-                        extensions: (extensions = []) => [
-                            ...extensions,
-                            '.ts',
-                            '.d.ts',
-                            '.tsx',
-                        ],
-                    },
-                },
             },
             rules: {
                 '@typescript-eslint/explicit-function-return-type': 'off',
