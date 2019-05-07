@@ -1,6 +1,9 @@
 {
   "name": "@confy/confy",
   "private": true,
+  "scripts": {
+    "setup": "lerna bootstrap"
+  },
   "devDependencies": {
     "lerna": "^3.13.1"
   },
