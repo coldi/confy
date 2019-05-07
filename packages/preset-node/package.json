@@ -1,0 +1,27 @@
+{
+  "name": "@confy/preset-node",
+  "version": "0.1.0",
+  "description": "NodeJS preset for Confy.",
+  "author": "Felix Laukel <felix@laukel.com>",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "confy",
+    "preset",
+    "node"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coldi/confy.git",
+    "directory": "packages/preset-node"
+  },
+  "main": "apprc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@confy/core": "*"
+  }
+}
