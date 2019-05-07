@@ -16,7 +16,6 @@
     "@confy/core": "^0.4.0",
     "@confy/preset-react": "^0.3.2",
     "@confy/preset-sass": "^0.1.2",
-    "@confy/preset-typescript": "^0.1.5",
-    "typescript": "^3.4.0"
+    "@confy/preset-typescript": "^0.1.5"
   }
 }
