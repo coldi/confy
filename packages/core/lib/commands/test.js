@@ -1,7 +1,7 @@
 const invariant = require('invariant');
 const jest = require('jest');
 const getConfig = require('../utils/getConfig');
-const writeFile = require('../utils/writeFile');
+const writeBabelConfigJs = require('../utils/writeBabelConfigJs');
 const settings = require('../settings');
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
 
         // Make configuration globally available in test environment.
         // This is necessary for the babel-jest transformer to work.
-        writeFile(settings.appPath, '.babelrc', config.addons.babel);
+        writeBabelConfigJs(settings.appPath, config.addons.babel);
 
         // Remove initial items from arguments list and pass the remaining args to Jest.
         // Initial items are: `[node] [confy-core] test`
