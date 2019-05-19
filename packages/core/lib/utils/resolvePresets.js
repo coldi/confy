@@ -13,8 +13,13 @@ const resolvePresets = (appPath = settings.appPath) => {
     const core = `${settings.prefix}core`;
     // Add base scripts as initial configuration.
     const presets = [core]
-        // Prefix other presets.
-        .concat((config.presets || []).map(preset => `${settings.prefix}preset-${preset}`));
+        .concat((config.presets || []).map(preset => {
+            // Return untouched preset name if it contains @ or -
+            if (/(@|-)/.test(preset)) return preset;
+            // Prefix preset if it contains only 1 word.
+            // This is considered confy preset shorthand name.
+            return `${settings.prefix}preset-${preset}`;
+        }));
 
     return presets
         .map(preset => {
