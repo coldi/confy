@@ -1,9 +1,9 @@
-const spawn = require('cross-spawn-promise');
+const spawn = require('cross-spawn');
 
 const initAppPkg = () => {
     console.log('Creating package.json');
 
-    return spawn('npm', ['init', '--yes']);
+    spawn.sync('npm', ['init', '--yes']);
 };
 
 module.exports = initAppPkg;

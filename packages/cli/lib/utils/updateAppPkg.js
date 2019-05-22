@@ -13,7 +13,7 @@ const updateAppPkg = () => {
     const corePkg = require(path.join(getModulePath(core), 'resources/package.json'));
     const updatedPkg = Object.assign({}, pkg, corePkg);
 
-    return fs.writeFile(appPkgPath, JSON.stringify(updatedPkg, null, 2));
+    fs.writeFileSync(appPkgPath, JSON.stringify(updatedPkg, null, 2));
 };
 
 module.exports = updateAppPkg;

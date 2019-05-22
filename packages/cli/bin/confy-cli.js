@@ -22,7 +22,7 @@ process.on('unhandledRejection', err => {
     throw err;
 });
 
-const run = async argv => {
+async function run (argv) {
     console.log(getBanner(version));
 
     if (argv.presets.length) {
@@ -56,23 +56,25 @@ const run = async argv => {
 
     console.log();
 
-    await initAppPkg();
-    await installDeps(argv.presets, pkgManager);
-    await updateAppPkg();
+    initAppPkg();
+    installDeps(argv.presets, pkgManager);
+    updateAppPkg();
+
     if (argv.presets.length) {
-        await createConfigFile(argv.presets);
+        createConfigFile(argv.presets);
     }
 
-    await Promise.all([initScripts(), prepareBoilerplate(argv.presets)]);
+    initScripts();
+    prepareBoilerplate(argv.presets);
 
     console.log();
     console.log(chalk.green.bold('ALL DONE!'));
     console.log();
     console.log('Your project is now ready.');
-    console.log('Run', chalk.yellow('npm start'), 'to start the dev server.');
+    console.log('Run', chalk.yellow(`${pkgManager} start`), 'to start the dev server.');
 
     process.exit();
-};
+}
 
 run(
     yargs
