@@ -1,6 +1,6 @@
 {
   "name": "@confy/cli",
-  "version": "0.1.3",
+  "version": "0.2.0-alpha.0",
   "description": "Start building modern front end projects in seconds.",
   "author": "Felix Laukel <felix@laukel.com>",
   "publishConfig": {
