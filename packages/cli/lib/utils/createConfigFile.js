@@ -21,7 +21,7 @@ module.exports = {
         .trim()
         .concat('\n');
 
-    return fs.writeFile(filename, content);
+    fs.writeFileSync(filename, content);
 };
 
 module.exports = createConfigFile;
