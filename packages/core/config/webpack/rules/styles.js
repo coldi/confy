@@ -20,7 +20,7 @@ module.exports = options => ({
                 sourceMap: true,
                 plugins: [
                     autoprefixer({
-                        browsers: options.browsersList,
+                        overrideBrowserslist: options.browsersList,
                     }),
                 ],
             },
