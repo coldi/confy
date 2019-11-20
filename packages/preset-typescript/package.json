@@ -23,8 +23,8 @@
   "license": "MIT",
   "dependencies": {
     "@babel/preset-typescript": "^7.1.0",
-    "@typescript-eslint/eslint-plugin": "^1.4.2",
-    "@typescript-eslint/parser": "^1.4.2",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
     "fork-ts-checker-webpack-plugin": "^1.0.0",
     "typescript": "^3.3.0"
   },
