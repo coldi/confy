@@ -1,9 +1,8 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root';
 import AppLayout from './AppLayout';
 import { ReactComponent as ReactLogo } from '../assets/react-logo.svg';
 
-export default hot(function App() {
+export default function App() {
     return (
         <AppLayout>
             <p>This stuff is running with React.</p>
@@ -12,4 +11,4 @@ export default hot(function App() {
             </p>
         </AppLayout>
     );
-});
+}

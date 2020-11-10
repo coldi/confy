@@ -1,16 +1,16 @@
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+
 function putPrettierLast(entries) {
-    const prettier = entries.filter(a => (/prettier/i).test(a));
-    const others = entries.filter(a => !(/prettier/i).test(a));
+    const prettier = entries.filter(a => /prettier/i.test(a));
+    const others = entries.filter(a => !/prettier/i.test(a));
     return others.concat(prettier);
 }
 
 module.exports = {
     addons: config => ({
         eslint: {
-            extends: (prevExtends = []) => putPrettierLast([
-                ...prevExtends,
-                'eslint-config-airbnb',
-            ]),
+            extends: (prevExtends = []) =>
+                putPrettierLast([...prevExtends, 'eslint-config-airbnb']),
             plugins: (plugins = []) => [
                 ...plugins,
                 'eslint-plugin-react-hooks',
@@ -32,10 +32,16 @@ module.exports = {
         },
 
         babel: {
-            presets: (presets = []) => [
-                ...presets,
-                require.resolve('@babel/preset-react'),
-            ],
+            presets: (presets = []) => {
+                presets.push(require.resolve('@babel/preset-react'));
+                return presets;
+            },
+            plugins: (plugins = []) => {
+                if (config.options.devMode) {
+                    plugins.push(require.resolve('react-refresh/babel'));
+                }
+                return plugins;
+            },
         },
 
         typescript: {
@@ -47,6 +53,12 @@ module.exports = {
 
     runners: config => ({
         webpack: {
+            plugins: (plugins = []) => {
+                if (config.options.devMode) {
+                    plugins.push(new ReactRefreshWebpackPlugin());
+                }
+                return plugins;
+            },
             module: {
                 rules: (rules = []) => {
                     rules.unshift({
@@ -68,13 +80,6 @@ module.exports = {
                     });
 
                     return rules;
-                },
-            },
-            resolve: {
-                alias: {
-                    'react-dom': config.options.devMode
-                        ? '@hot-loader/react-dom'
-                        : 'react-dom',
                 },
             },
         },
