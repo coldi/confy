@@ -53,9 +53,13 @@ module.exports = {
             rules: {
                 '@typescript-eslint/explicit-function-return-type': 'off',
                 '@typescript-eslint/no-explicit-any': 'off',
+                '@typescript-eslint/no-shadow': 'error',
+                '@typescript-eslint/no-redeclare': 'error',
                 '@typescript-eslint/no-use-before-define': 'error',
                 // use the @typescript-eslint rule instead
+                'no-shadow': 'off',
                 'no-unused-vars': 'off',
+                'no-redeclare': 'off',
                 'no-use-before-define': 'off',
             },
         },
