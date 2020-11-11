@@ -2,8 +2,8 @@ const path = require('path');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 function putPrettierLast(entries) {
-    const prettier = entries.filter(a => (/prettier/i).test(a));
-    const others = entries.filter(a => !(/prettier/i).test(a));
+    const prettier = entries.filter(a => /prettier/i.test(a));
+    const others = entries.filter(a => !/prettier/i.test(a));
     return others.concat(prettier);
 }
 
@@ -25,18 +25,19 @@ module.exports = {
             presets: (presets = []) => [
                 ...presets,
                 require.resolve('@babel/preset-typescript'),
-            ]
+            ],
         },
         eslint: {
             parser: require.resolve('@typescript-eslint/parser'),
             parserOptions: {
                 project: path.join(process.cwd(), 'tsconfig.json'),
             },
-            extends: (entries = []) => putPrettierLast([
-                ...entries,
-                'plugin:@typescript-eslint/recommended',
-                'prettier/@typescript-eslint',
-            ]),
+            extends: (entries = []) =>
+                putPrettierLast([
+                    ...entries,
+                    'plugin:@typescript-eslint/eslint-recommended',
+                    'prettier/@typescript-eslint',
+                ]),
             plugins: (plugins = []) => [
                 ...plugins,
                 '@typescript-eslint/eslint-plugin',
@@ -65,17 +66,15 @@ module.exports = {
             module: {
                 rules: (rules = []) => {
                     const jsRule = rules.find(rule => '.js'.match(rule.test));
-                    const nonJsRules = rules.filter(rule => !'.js'.match(rule.test));
+                    const nonJsRules = rules.filter(
+                        rule => !'.js'.match(rule.test)
+                    );
                     const tsRule = { ...jsRule, test: /\.(j|t)sx?$/ };
                     return [tsRule, ...nonJsRules];
                 },
             },
             resolve: {
-                extensions: (extensions = []) => [
-                    ...extensions,
-                    '.ts',
-                    '.tsx',
-                ],
+                extensions: (extensions = []) => [...extensions, '.ts', '.tsx'],
             },
             plugins: (plugins = []) => [
                 ...plugins,
@@ -90,7 +89,7 @@ module.exports = {
             ],
             transform: {
                 '\\.tsx?$': 'babel-jest',
-            }
-        }
+            },
+        },
     }),
 };
