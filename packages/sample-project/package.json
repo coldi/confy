@@ -17,5 +17,9 @@
     "@confy/preset-react": "^0.4.0",
     "@confy/preset-sass": "^0.1.2",
     "@confy/preset-typescript": "^0.4.0"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.56",
+    "@types/react-dom": "^16.9.9"
   }
 }
