@@ -1,40 +1,40 @@
 {
-  "name": "@confy/preset-react",
-  "version": "0.4.0",
-  "description": "React preset for Confy.",
-  "author": "Felix Laukel <felix@laukel.com>",
-  "publishConfig": {
-    "access": "public"
-  },
-  "keywords": [
-    "confy",
-    "preset",
-    "react"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/coldi/confy.git",
-    "directory": "packages/preset-react"
-  },
-  "main": "apprc.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "@babel/preset-react": "^7.0.0",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
-    "@svgr/webpack": "^4.1.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-jsx-a11y": "^6.2.0",
-    "eslint-plugin-react": "^7.12.0",
-    "eslint-plugin-react-hooks": "^1.5.1",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
-    "react-refresh": "^0.9.0",
-    "react-test-renderer": "^17.0.0"
-  },
-  "peerDependencies": {
-    "@confy/core": "*"
-  }
+    "name": "@confy/preset-react",
+    "version": "0.4.0",
+    "description": "React preset for Confy.",
+    "author": "Felix Laukel <felix@laukel.com>",
+    "publishConfig": {
+        "access": "public"
+    },
+    "keywords": [
+        "confy",
+        "preset",
+        "react"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/coldi/confy.git",
+        "directory": "packages/preset-react"
+    },
+    "main": "apprc.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "@babel/preset-react": "^7.0.0",
+        "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+        "@svgr/webpack": "^4.1.0",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-plugin-jsx-a11y": "^6.2.0",
+        "eslint-plugin-react": "^7.12.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "react": "^17.0.0",
+        "react-dom": "^17.0.0",
+        "react-refresh": "^0.9.0",
+        "react-test-renderer": "^17.0.0"
+    },
+    "peerDependencies": {
+        "@confy/core": "*"
+    }
 }
