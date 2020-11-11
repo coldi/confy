@@ -1,6 +1,6 @@
 {
   "name": "@confy/sample-project",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "A sample project using Confy.",
   "private": true,
   "scripts": {
@@ -16,6 +16,6 @@
     "@confy/core": "^0.5.2",
     "@confy/preset-react": "^0.4.0",
     "@confy/preset-sass": "^0.1.2",
-    "@confy/preset-typescript": "^0.2.0"
+    "@confy/preset-typescript": "^0.3.0"
   }
 }
