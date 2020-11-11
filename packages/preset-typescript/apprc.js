@@ -53,8 +53,10 @@ module.exports = {
             rules: {
                 '@typescript-eslint/explicit-function-return-type': 'off',
                 '@typescript-eslint/no-explicit-any': 'off',
-                // use the @typescript-eslint rule for unused vars
+                '@typescript-eslint/no-use-before-define': 'error',
+                // use the @typescript-eslint rule instead
                 'no-unused-vars': 'off',
+                'no-use-before-define': 'off',
             },
         },
         prettier: {
