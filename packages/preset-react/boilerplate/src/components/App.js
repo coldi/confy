@@ -1,8 +1,6 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root';
 
-// hot(App) is only required for the root component.
-export default hot(function App() {
+export default function App() {
     return (
         <div>
             <h1>Rendered with React.</h1>
@@ -11,4 +9,4 @@ export default hot(function App() {
             </p>
         </div>
     );
-});
+}
