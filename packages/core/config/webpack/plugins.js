@@ -5,13 +5,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const settings = require('../../lib/settings');
 
 module.exports = (options) => {
     const plugins = [];
 
-    // Add clean up plugin
     plugins.push(new CleanWebpackPlugin());
+
+    plugins.push(new ESLintPlugin());
 
     // Resolve assets folder
     const assetsPath = path.resolve(settings.appPath, options.srcDir, options.assetsDir);
@@ -25,9 +27,9 @@ module.exports = (options) => {
         );
 
         plugins.push(
-            new CopyWebpackPlugin([
-                { from: assetsPath, to: assetsOutputPath },
-            ])
+            new CopyWebpackPlugin({
+                patterns: [{ from: assetsPath, to: assetsOutputPath }],
+            })
         );
     }
 

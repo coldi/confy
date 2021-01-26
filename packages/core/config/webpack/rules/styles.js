@@ -9,20 +9,24 @@ module.exports = options => ({
             loader: 'css-loader',
             options: {
                 sourceMap: true,
-                modules: false,
-                // If modules are enabled, they resolve to this pattern
-                localIdentName: '[name]_[local]__[hash:base64:5]',
+                // Enable css modules
+                modules: {
+                    // If modules are enabled, they resolve to this pattern
+                    localIdentName: '[name]_[local]__[hash:base64:5]',
+                },
             },
         },
         {
             loader: 'postcss-loader',
             options: {
                 sourceMap: true,
-                plugins: [
-                    autoprefixer({
-                        overrideBrowserslist: options.browsersList,
-                    }),
-                ],
+                postcssOptions: {
+                    plugins: [
+                        autoprefixer({
+                            overrideBrowserslist: options.browsersList,
+                        }),
+                    ],
+                },
             },
         },
     ],

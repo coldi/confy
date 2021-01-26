@@ -63,7 +63,7 @@ module.exports = {
                 rules: (rules = []) => {
                     rules.unshift({
                         test: /\.svg$/,
-                        issuer: { test: /\.jsx?$/ },
+                        issuer: /\.jsx?$/,
                         use: ['@svgr/webpack', 'file-loader'],
                     });
 

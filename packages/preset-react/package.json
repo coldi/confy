@@ -24,7 +24,7 @@
     "dependencies": {
         "@babel/preset-react": "^7.0.0",
         "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
-        "@svgr/webpack": "^4.1.0",
+        "@svgr/webpack": "^5.5.0",
         "eslint-config-airbnb": "^17.1.0",
         "eslint-plugin-jsx-a11y": "^6.2.0",
         "eslint-plugin-react": "^7.12.0",

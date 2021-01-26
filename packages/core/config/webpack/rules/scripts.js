@@ -11,11 +11,6 @@ module.exports = (options, addons) => ({
                 babelrc: false,
             },
         },
-        {
-            loader: 'eslint-loader',
-        },
     ],
-    include: [
-        path.join(settings.appPath, options.srcDir),
-    ],
+    include: [path.join(settings.appPath, options.srcDir)],
 });
