@@ -68,6 +68,9 @@ module.exports = {
     // Set js output filename in webpack.output
     jsOutputFile: '[name].bundle.js',
 
+    // Set file extensions for all JS related files
+    scriptExtensions: ['mjs', 'js', 'json'],
+
     // Set css output filename for MiniCssExtractPlugin
     cssOutputFile: 'style.css',
 

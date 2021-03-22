@@ -1,6 +1,6 @@
 const settings = require('../../lib/settings');
 
-module.exports = () => ({
+module.exports = (config) => ({
     verbose: true,
     rootDir: settings.appPath,
     testEnvironment: 'jsdom',
@@ -10,6 +10,7 @@ module.exports = () => ({
     setupFiles: [
         require.resolve('./setupEnv'),
     ],
+    moduleFileExtensions: config.options.scriptExtensions,
     moduleNameMapper: {
         '\\.css$': require.resolve('identity-obj-proxy'),
         // Example for internal path alias (e.g. assets/foo -> src/assets/foo)

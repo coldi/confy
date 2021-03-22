@@ -9,6 +9,7 @@
     "build": "confy-core build --env=production",
     "build-watch": "confy-core build --watch --env=production",
     "test": "confy-core test --env=test",
+    "lint": "eslint \"src/**\"",
     "config": "confy-core show-config --env=development"
   },
   "license": "MIT",

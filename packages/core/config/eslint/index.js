@@ -1,4 +1,4 @@
-module.exports = () => ({
+module.exports = (options) => ({
     extends: [
         'eslint-config-airbnb-base',
         'plugin:prettier/recommended',
@@ -10,7 +10,7 @@ module.exports = () => ({
         jest: true,
     },
     settings: {
-        'import/extensions': ['.js', '.jsx'],
+        'import/extensions': options.scriptExtensions.map(ext => `.${ext}`),
     },
     rules: {
         'no-console': 'warn',

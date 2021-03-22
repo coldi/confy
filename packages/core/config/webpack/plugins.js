@@ -13,7 +13,9 @@ module.exports = (options) => {
 
     plugins.push(new CleanWebpackPlugin());
 
-    plugins.push(new ESLintPlugin());
+    plugins.push(new ESLintPlugin({
+        extensions: options.scriptExtensions,
+    }));
 
     // Resolve assets folder
     const assetsPath = path.resolve(settings.appPath, options.srcDir, options.assetsDir);

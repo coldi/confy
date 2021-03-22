@@ -1,9 +1,5 @@
 const path = require('path');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-// we need to require this plugin, so we can pass the recommended rules manually
-// to our eslint rules config below.
-// this is a workaround for extending 'plugin:@typescript-eslint/recommended' directly.
-const TypescriptEslintPlugin = require('@typescript-eslint/eslint-plugin');
 
 function putPrettierLast(entries) {
     const prettier = entries.filter(a => /prettier/i.test(a));
@@ -12,6 +8,9 @@ function putPrettierLast(entries) {
 }
 
 module.exports = {
+    options: {
+        scriptExtensions: (extensions = []) => [...extensions, 'ts', 'tsx', 'd.ts'],
+    },
     addons: () => ({
         typescript: {
             compilerOptions: {
@@ -42,27 +41,13 @@ module.exports = {
                     ...entries,
                     'plugin:@typescript-eslint/base',
                     'plugin:@typescript-eslint/eslint-recommended',
-                    // there is a bug when using this config directly.
-                    // files in the `extends` field in this config cannot be resolved.
-                    // TODO: once our eslint gets upgraded to >=6 this issue may be solved.
-                    // 'plugin:@typescript-eslint/recommended',
-                    'prettier/@typescript-eslint',
+                    'plugin:@typescript-eslint/recommended',
                 ]),
             plugins: (plugins = []) => [
                 ...plugins,
                 '@typescript-eslint/eslint-plugin',
             ],
-            settings: {
-                'import/extensions': (extensions = []) => [
-                    ...extensions,
-                    '.ts',
-                    '.d.ts',
-                    '.tsx',
-                ],
-            },
             rules: {
-                // spread the recommended rules manually as a workaround
-                ...TypescriptEslintPlugin.configs.recommended.rules,
                 '@typescript-eslint/explicit-function-return-type': 'off',
                 '@typescript-eslint/explicit-module-boundary-types': 'off',
                 '@typescript-eslint/no-explicit-any': 'off',
@@ -92,20 +77,12 @@ module.exports = {
                     return [tsRule, ...nonJsRules];
                 },
             },
-            resolve: {
-                extensions: (extensions = []) => [...extensions, '.ts', '.tsx'],
-            },
             plugins: (plugins = []) => [
                 ...plugins,
                 new ForkTsCheckerWebpackPlugin({ async: false }),
             ],
         },
         jest: {
-            moduleFileExtensions: (extensions = ['js']) => [
-                ...extensions,
-                'ts',
-                'tsx',
-            ],
             transform: {
                 '\\.tsx?$': 'babel-jest',
             },

@@ -35,11 +35,7 @@ module.exports = (config) => ({
             settings.nodeModulesPath,
             settings.appNodeModulesPath,
         ],
-        extensions: [
-            '.mjs',
-            '.js',
-            '.json',
-        ],
+        extensions: config.options.scriptExtensions.map(ext => `.${ext}`),
     },
 
     resolveLoader: {

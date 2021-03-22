@@ -8,6 +8,8 @@ module.exports = {
         entryFiles: ['index'],
         // Set js output filename
         jsOutputFile: '[name].bundle.js',
+        // Set file extensions for all JS related files
+        scriptExtensions: ['mjs', 'js', 'json'],
         // Set css output filename
         cssOutputFile: 'style.css',
         // Set css filename for dynamic chunks

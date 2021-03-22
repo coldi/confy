@@ -5,7 +5,7 @@ module.exports = {
         htmlTemplate: null,
         host: null,
     },
-    addons: () => ({
+    addons: (options) => ({
         // we define some typescript defaults here,
         // so it can be used with the node preset without further adjustments.
         typescript: {
@@ -19,12 +19,7 @@ module.exports = {
             settings: {
                 'import/resolver': {
                     node: {
-                        extensions: (extensions = []) => [
-                            ...extensions,
-                            '.js',
-                            '.ts',
-                            '.d.ts',
-                        ],
+                        extensions: options.scriptExtensions.map(ext => `.${ext}`),
                     },
                 },
             },

@@ -7,6 +7,9 @@ function putPrettierLast(entries) {
 }
 
 module.exports = {
+    options: {
+        scriptExtensions: (extensions = []) => [...extensions, 'jsx'],
+    },
     addons: config => ({
         eslint: {
             extends: (prevExtends = []) =>
