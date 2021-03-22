@@ -1,8 +1,8 @@
-module.exports = () => ({
-    hash: false,
-    timings: false,
-    chunks: false,
-    chunkModules: false,
+module.exports = (options) => ({
+    preset: 'minimal',
+    entrypoints: !options.devMode,
+    assets: false,
     modules: false,
-    children: false,
+    runtimeModules: false,
+    moduleTrace: true,
 });

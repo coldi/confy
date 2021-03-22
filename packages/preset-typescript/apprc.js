@@ -19,6 +19,7 @@ module.exports = {
                 sourceMap: true,
                 allowJs: true,
                 allowSyntheticDefaultImports: true,
+                skipLibCheck: true,
                 module: 'esnext',
                 moduleResolution: 'node',
                 lib: ['es2015', 'dom'],
