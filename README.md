@@ -63,7 +63,7 @@ Confy offers ready-to-use presets for the following setups:
 
 ## Usage
 
-> 👉 Confy requires `Node >=8.6` with `NPM >=5.6` or `Yarn >=1.0`
+> 👉 Confy requires `Node >=14` with `NPM >=6` or `Yarn 1.x`
 
 ### Start a new app
 
