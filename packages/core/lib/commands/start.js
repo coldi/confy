@@ -30,7 +30,7 @@ module.exports = {
 
         const compiler = webpack(config.runners.webpack);
 
-        compiler.plugin('done', (stats) => {
+        compiler.hooks.done.tap('ConfyStart', (stats) => {
             clearConsole();
 
             if (stats.hasErrors()) {
