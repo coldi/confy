@@ -1,6 +1,7 @@
-module.exports = () => ({
+module.exports = (options) => ({
+    assets: !options.devMode,
+    timings: true,
     hash: false,
-    timings: false,
     chunks: false,
     chunkModules: false,
     modules: false,
