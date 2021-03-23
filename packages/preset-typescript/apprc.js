@@ -59,6 +59,7 @@ module.exports = {
                 'no-unused-vars': 'off',
                 'no-redeclare': 'off',
                 'no-use-before-define': 'off',
+                'no-undef': 'off',
             },
         },
         prettier: {
