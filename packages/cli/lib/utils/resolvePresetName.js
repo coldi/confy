@@ -14,7 +14,7 @@ const resolvePresetName = (preset) => {
     // Test if simple preset name was passed
     if (settings.presetNameRegEx.test(preset)) {
         // Add preset prefix
-        return `${settings.presetNamePrefix}${preset}`;
+        return `${settings.presetNamePrefix}${preset}${settings.presetVersionSuffix}`;
     }
 
     return preset;

@@ -19,7 +19,7 @@ const installDeps = (presets = [], pkgManager) => {
 
     console.log('Installing dependencies.', chalk.gray('Hang on ...'));
 
-    const core = `${settings.prefix}core`;
+    const core = `${settings.prefix}core${settings.presetVersionSuffix}`;
     const deps = [core].concat(presets.map(getPresetPkgUrl));
 
     spawn.sync(pkgManager, [...args, ...deps]);
