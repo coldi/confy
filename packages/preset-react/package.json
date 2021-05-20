@@ -1,6 +1,6 @@
 {
     "name": "@confy/preset-react",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "description": "React preset for Confy.",
     "author": "Felix Laukel <felix@laukel.com>",
     "publishConfig": {
