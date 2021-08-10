@@ -939,6 +939,34 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@confy/preset-react@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@confy/preset-react/-/preset-react-0.4.2.tgz#e278812233527b9e8b53cc22bec14274b1415b5c"
+  integrity sha512-G8W/MbzNxXVWqvD78j67GNoOQxHaB6sCQEdy+9SgDu5qQk4sMnKJzAljg2lJfmJKjH0vUhuNYCZNqallJlaCQw==
+  dependencies:
+    "@babel/preset-react" "^7.0.0"
+    "@pmmmwh/react-refresh-webpack-plugin" "^0.4.3"
+    "@svgr/webpack" "^4.1.0"
+    eslint-config-airbnb "^17.1.0"
+    eslint-plugin-jsx-a11y "^6.2.0"
+    eslint-plugin-react "^7.12.0"
+    eslint-plugin-react-hooks "^4.2.0"
+    react "^17.0.0"
+    react-dom "^17.0.0"
+    react-refresh "^0.9.0"
+    react-test-renderer "^17.0.0"
+
+"@confy/preset-typescript@^0.4.4":
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/@confy/preset-typescript/-/preset-typescript-0.4.4.tgz#b794b881aba190b0a6080e95a34787f1fadc5966"
+  integrity sha512-iBL64HYD1U91qWOkz9C5o6teatFJ9UU07wn3t5vwgGyAuRZo8pHsNh+yj4Qyy3PxfSh2GgbtRNQKUz/arGVeww==
+  dependencies:
+    "@babel/preset-typescript" "^7.1.0"
+    "@typescript-eslint/eslint-plugin" "~4.8.0"
+    "@typescript-eslint/parser" "~4.8.0"
+    fork-ts-checker-webpack-plugin "^4.0.0"
+    typescript "^4.0.0"
+
 "@evocateur/libnpmaccess@^3.1.2":
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/@evocateur/libnpmaccess/-/libnpmaccess-3.1.2.tgz#ecf7f6ce6b004e9f942b098d92200be4a4b1c845"
@@ -8901,9 +8929,9 @@ path-key@^2.0.0, path-key@^2.0.1:
   integrity sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
-  integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 path-to-regexp@0.1.7:
   version "0.1.7"
