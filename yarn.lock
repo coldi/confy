@@ -939,6 +939,34 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@confy/preset-react@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@confy/preset-react/-/preset-react-0.4.2.tgz#e278812233527b9e8b53cc22bec14274b1415b5c"
+  integrity sha512-G8W/MbzNxXVWqvD78j67GNoOQxHaB6sCQEdy+9SgDu5qQk4sMnKJzAljg2lJfmJKjH0vUhuNYCZNqallJlaCQw==
+  dependencies:
+    "@babel/preset-react" "^7.0.0"
+    "@pmmmwh/react-refresh-webpack-plugin" "^0.4.3"
+    "@svgr/webpack" "^4.1.0"
+    eslint-config-airbnb "^17.1.0"
+    eslint-plugin-jsx-a11y "^6.2.0"
+    eslint-plugin-react "^7.12.0"
+    eslint-plugin-react-hooks "^4.2.0"
+    react "^17.0.0"
+    react-dom "^17.0.0"
+    react-refresh "^0.9.0"
+    react-test-renderer "^17.0.0"
+
+"@confy/preset-typescript@^0.4.4":
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/@confy/preset-typescript/-/preset-typescript-0.4.4.tgz#b794b881aba190b0a6080e95a34787f1fadc5966"
+  integrity sha512-iBL64HYD1U91qWOkz9C5o6teatFJ9UU07wn3t5vwgGyAuRZo8pHsNh+yj4Qyy3PxfSh2GgbtRNQKUz/arGVeww==
+  dependencies:
+    "@babel/preset-typescript" "^7.1.0"
+    "@typescript-eslint/eslint-plugin" "~4.8.0"
+    "@typescript-eslint/parser" "~4.8.0"
+    fork-ts-checker-webpack-plugin "^4.0.0"
+    typescript "^4.0.0"
+
 "@evocateur/libnpmaccess@^3.1.2":
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/@evocateur/libnpmaccess/-/libnpmaccess-3.1.2.tgz#ecf7f6ce6b004e9f942b098d92200be4a4b1c845"
@@ -10931,9 +10959,9 @@ tmp@^0.0.33:
     os-tmpdir "~1.0.2"
 
 tmpl@1.0.x:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.4.tgz#23640dd7b42d00433911140820e5cf440e521dd1"
-  integrity sha1-I2QN17QtAEM5ERQIIOXPRA5SHdE=
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.5.tgz#8683e0b902bb9c20c4f726e3c0b69f36518c07cc"
+  integrity sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==
 
 to-arraybuffer@^1.0.0:
   version "1.0.1"
