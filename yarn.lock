@@ -939,6 +939,34 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@confy/preset-react@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@confy/preset-react/-/preset-react-0.4.2.tgz#e278812233527b9e8b53cc22bec14274b1415b5c"
+  integrity sha512-G8W/MbzNxXVWqvD78j67GNoOQxHaB6sCQEdy+9SgDu5qQk4sMnKJzAljg2lJfmJKjH0vUhuNYCZNqallJlaCQw==
+  dependencies:
+    "@babel/preset-react" "^7.0.0"
+    "@pmmmwh/react-refresh-webpack-plugin" "^0.4.3"
+    "@svgr/webpack" "^4.1.0"
+    eslint-config-airbnb "^17.1.0"
+    eslint-plugin-jsx-a11y "^6.2.0"
+    eslint-plugin-react "^7.12.0"
+    eslint-plugin-react-hooks "^4.2.0"
+    react "^17.0.0"
+    react-dom "^17.0.0"
+    react-refresh "^0.9.0"
+    react-test-renderer "^17.0.0"
+
+"@confy/preset-typescript@^0.4.4":
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/@confy/preset-typescript/-/preset-typescript-0.4.4.tgz#b794b881aba190b0a6080e95a34787f1fadc5966"
+  integrity sha512-iBL64HYD1U91qWOkz9C5o6teatFJ9UU07wn3t5vwgGyAuRZo8pHsNh+yj4Qyy3PxfSh2GgbtRNQKUz/arGVeww==
+  dependencies:
+    "@babel/preset-typescript" "^7.1.0"
+    "@typescript-eslint/eslint-plugin" "~4.8.0"
+    "@typescript-eslint/parser" "~4.8.0"
+    fork-ts-checker-webpack-plugin "^4.0.0"
+    typescript "^4.0.0"
+
 "@evocateur/libnpmaccess@^3.1.2":
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/@evocateur/libnpmaccess/-/libnpmaccess-3.1.2.tgz#ecf7f6ce6b004e9f942b098d92200be4a4b1c845"
@@ -11265,9 +11293,9 @@ url-loader@^1.1.0:
     schema-utils "^1.0.0"
 
 url-parse@^1.4.3:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.5.1.tgz#d5fa9890af8a5e1f274a2c98376510f6425f6e3b"
-  integrity sha512-HOfCOUJt7iSYzEx/UqgtwKRMC6EU91NFhsCHMv9oM03VJcVo2Qrp8T8kI9D7amFf1cu+/3CEhgb3rF9zL7k85Q==
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.5.3.tgz#71c1303d38fb6639ade183c2992c8cc0686df862"
+  integrity sha512-IIORyIQD9rvj0A4CLWsHkBBJuNqWpFQe224b6j9t/ABmquIS0qDU2pY6kl6AuOrL5OkCXHMCFNe1jBcuAggjvQ==
   dependencies:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
