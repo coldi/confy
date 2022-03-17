@@ -23,6 +23,7 @@ module.exports = {
                 moduleResolution: 'node',
                 lib: ['es2015', 'dom'],
                 target: 'es5',
+                types: ['@types/jest'],
             },
         },
         babel: {
